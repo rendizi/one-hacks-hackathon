@@ -37,7 +37,6 @@ async def authorize_user(token: str = Depends(oauth2_scheme)):
         current_user = get_current_access_user(token)
         return current_user
     except Exception as e:
-        print(e)
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Could not validate credentials",
